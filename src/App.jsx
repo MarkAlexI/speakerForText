@@ -1,27 +1,13 @@
-import React, { useState } from 'react';
-import Button from 'reactstrap/lib/Button';
+import React from 'react';
+import Container from 'reactstrap/lib/Container';
+import { Voices } from '@/Voices';
+import '/src/assets/styles/style.css';
 
 export const App = () => {
-  const [state, setState] = useState("ready");
-
+  
   return (
-    <div className="row">
-      <div className="col-xs-6 col-md-4">
-        <div className="text-center">
-          <p>%©®™</p>
-          <p>{state}</p>
-          <Button
-            color="warning"
-            onClick={function() {
-              console.log(this);
-              setState('go');
-              return;
-              }
-            }
-            >Push!
-          </Button>
-        </div>
-       </div>
-    </div>
+    <Container>
+      <Voices />
+    </Container>
   )
 };

@@ -31,7 +31,10 @@ const config = {
     modules:[
       'node_modules',
       path.join(process.env.NPM_CONFIG_PREFIX || __dirname, 'lib/node_modules')
-    ]
+    ],
+    alias: {
+      '@': path.resolve('src/components')
+    }
   },
   resolveLoader: {
     modules:[
