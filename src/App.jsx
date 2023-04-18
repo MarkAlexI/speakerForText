@@ -2,6 +2,7 @@ import React from 'react';
 import Container from 'reactstrap/lib/Container';
 import { Voices } from '@/Voices';
 import { SpeechSpeed } from '@/SpeechSpeed';
+import { PitchRate } from '@/PitchRate';
 import '/src/assets/styles/style.css';
 
 export const App = () => {
@@ -10,6 +11,7 @@ export const App = () => {
     <Container>
       <Voices />
       <SpeechSpeed />
+      <PitchRate />
     </Container>
   )
 };
