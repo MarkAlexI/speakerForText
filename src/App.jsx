@@ -6,6 +6,7 @@ import { Voices } from '@/Voices';
 import { SpeechSpeed } from '@/SpeechSpeed';
 import { PitchRate } from '@/PitchRate';
 import { TextArea } from '@/TextArea';
+import { SSControls } from '@/SSControls';
 
 import { voices, voicesList } from './utils/speechSynthesis';
 
@@ -22,6 +23,7 @@ export const App = () => {
       <SpeechSpeed />
       <PitchRate />
       <TextArea />
+      <SSControls />
     </Container>
   )
 };
