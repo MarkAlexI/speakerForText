@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Row from 'reactstrap/lib/Row';
 import Col from 'reactstrap/lib/Col';
@@ -8,6 +8,11 @@ import Label from 'reactstrap/lib/Label';
 import Input from 'reactstrap/lib/Input';
 
 export const Voices = (props) => {
+  const [activeVoice, setActiveVoice] = useState('');
+  const handleChange = (event) => {
+    setActiveVoice(event.target.value);
+    props.changeActiveVoice(activeVoice);
+  };
   
   function createMarkup() {
     return {__html: props.list};
@@ -21,6 +26,7 @@ export const Voices = (props) => {
           <Input
             type="select"
             id="voices"
+            onChange={handleChange}
             dangerouslySetInnerHTML={createMarkup()}
           >
           </Input>

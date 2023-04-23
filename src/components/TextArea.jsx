@@ -4,10 +4,11 @@ import FormGroup from 'reactstrap/lib/FormGroup';
 import Label from 'reactstrap/lib/Label';
 import Input from 'reactstrap/lib/Input';
 
-export const TextArea = () => {
+export const TextArea = ({ changeText }) => {
   const [text, setText] = useState('');
   const handleChange = (event) => {
     setText(event.target.value);
+    changeText(text);
   };
   
   return (

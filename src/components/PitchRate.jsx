@@ -6,10 +6,11 @@ import FormGroup from 'reactstrap/lib/FormGroup';
 import Label from 'reactstrap/lib/Label';
 import Input from 'reactstrap/lib/Input';
 
-export const PitchRate = () => {
+export const PitchRate = ({ changePitch }) => {
   const [pitch, setPitch] = useState(1);
   const handleChange = (event) => {
     setPitch(event.target.value);
+    changePitch(pitch);
   };
   
   return (

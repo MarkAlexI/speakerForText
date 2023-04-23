@@ -6,10 +6,11 @@ import FormGroup from 'reactstrap/lib/FormGroup';
 import Label from 'reactstrap/lib/Label';
 import Input from 'reactstrap/lib/Input';
 
-export const SpeechSpeed = () => {
+export const SpeechSpeed = ({ changeSpeed }) => {
   const [speed, setSpeed] = useState(1);
   const handleChange = (event) => {
     setSpeed(event.target.value);
+    changeSpeed(speed);
   };
   
   return (
