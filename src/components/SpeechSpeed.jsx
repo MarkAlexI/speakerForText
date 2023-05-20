@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
 
+import { connect } from 'react-redux';
+import { changeSpeed } from '../actions';
+import { store } from '../store.js';
+
 import Row from 'reactstrap/lib/Row';
 import Col from 'reactstrap/lib/Col';
 import FormGroup from 'reactstrap/lib/FormGroup';
 import Label from 'reactstrap/lib/Label';
 import Input from 'reactstrap/lib/Input';
 
-export const SpeechSpeed = ({ changeSpeed }) => {
-  const [speed, setSpeed] = useState(1);
+const SpeechSpeed = ({ dispatch }) => {
+  const [speed, setSpeed] = useState(store.getState().speechSpeed.value);
   const handleChange = (event) => {
     setSpeed(event.target.value);
-    changeSpeed(speed);
+    dispatch(changeSpeed(event.target.value));
   };
   
   return (
@@ -35,3 +39,5 @@ export const SpeechSpeed = ({ changeSpeed }) => {
     </Row>
   )
 };
+
+export default connect()(SpeechSpeed);
