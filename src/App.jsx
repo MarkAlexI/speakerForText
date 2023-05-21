@@ -5,7 +5,7 @@ import Container from 'reactstrap/lib/Container';
 
 import { Voices } from '@/Voices';
 import SpeechSpeed from '@/SpeechSpeed';
-import { PitchRate } from '@/PitchRate';
+import PitchRate from '@/PitchRate';
 import { TextArea } from '@/TextArea';
 import { SSControls } from '@/SSControls';
 
@@ -23,10 +23,7 @@ export const App = () => {
   
   const speed = store.getState().speechSpeed.value;
   
-  const [pitch, setPitch] = useState(1);
-  const changePitch = (newValue) => {
-    setPitch(newValue);
-  };
+  const pitch = store.getState().pitchRate.value;
   
   const [text, setText] = useState('');
   const changeText = (newValue) => {
@@ -42,9 +39,7 @@ export const App = () => {
         changeActiveVoice={changeActiveVoice}
       />
       <SpeechSpeed />
-      <PitchRate
-        changePitch={changePitch}
-      />
+      <PitchRate />
       <TextArea
         changeText={changeText}
       />

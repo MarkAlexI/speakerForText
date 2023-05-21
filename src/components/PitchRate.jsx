@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
 
+import { connect } from 'react-redux';
+import { changePitch } from '../actions';
+import { store } from '../store.js';
+
 import Row from 'reactstrap/lib/Row';
 import Col from 'reactstrap/lib/Col';
 import FormGroup from 'reactstrap/lib/FormGroup';
 import Label from 'reactstrap/lib/Label';
 import Input from 'reactstrap/lib/Input';
 
-export const PitchRate = ({ changePitch }) => {
-  const [pitch, setPitch] = useState(1);
+const PitchRate = ({ dispatch }) => {
+  const [pitch, setPitch] = useState(store.getState().pitchRate.value);
   const handleChange = (event) => {
     setPitch(event.target.value);
-    changePitch(pitch);
+    dispatch(changePitch(event.target.value));
   };
   
   return (
@@ -35,3 +39,5 @@ export const PitchRate = ({ changePitch }) => {
     </Row>
   )
 };
+
+export default connect()(PitchRate);

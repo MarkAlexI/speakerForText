@@ -4,3 +4,10 @@ export const changeSpeed = (speed) => {
     payload: speed
   }
 };
+
+export const changePitch = (pitch) => {
+  return {
+    type: "CHANGE_PITCH",
+    payload: pitch
+  }
+};
