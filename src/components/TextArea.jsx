@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 
+import { connect } from 'react-redux';
+import { changeText } from '../actions';
+import { store } from '../store.js';
+
 import FormGroup from 'reactstrap/lib/FormGroup';
 import Label from 'reactstrap/lib/Label';
 import Input from 'reactstrap/lib/Input';
 
-export const TextArea = ({ changeText }) => {
-  const [text, setText] = useState('');
+const TextArea = ({ dispatch }) => {
+  const [text, setText] = useState(store.getState().textField.value);
   const handleChange = (event) => {
     setText(event.target.value);
-    changeText(text);
+    dispatch(changeText(event.target.value));
   };
   
   return (
@@ -28,3 +32,5 @@ export const TextArea = ({ changeText }) => {
     </FormGroup>
   )
 };
+
+export default connect()(TextArea);
