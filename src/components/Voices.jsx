@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 
+import { connect } from 'react-redux';
+import { changeActiveVoice } from '../actions';
+import { store } from '../store.js';
+
 import Row from 'reactstrap/lib/Row';
 import Col from 'reactstrap/lib/Col';
 import CardTitle from 'reactstrap/lib/CardTitle';
@@ -7,15 +11,15 @@ import FormGroup from 'reactstrap/lib/FormGroup';
 import Label from 'reactstrap/lib/Label';
 import Input from 'reactstrap/lib/Input';
 
-export const Voices = (props) => {
-  const [activeVoice, setActiveVoice] = useState('');
+const Voices = ({ list, dispatch }) => {
+  const [activeVoice, setActiveVoice] = useState(store.getState().activeVoice.value);
   const handleChange = (event) => {
     setActiveVoice(event.target.value);
-    props.changeActiveVoice(activeVoice);
+    dispatch(changeActiveVoice(event.target.value));
   };
   
   function createMarkup() {
-    return {__html: props.list};
+    return {__html: list};
   }
   return (
     <Row>
@@ -35,3 +39,5 @@ export const Voices = (props) => {
     </Row>
   )
 };
+
+export default connect()(Voices);

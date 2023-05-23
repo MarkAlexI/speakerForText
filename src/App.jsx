@@ -3,7 +3,7 @@ import { store } from './store.js';
 
 import Container from 'reactstrap/lib/Container';
 
-import { Voices } from '@/Voices';
+import Voices from '@/Voices';
 import SpeechSpeed from '@/SpeechSpeed';
 import PitchRate from '@/PitchRate';
 import TextArea from '@/TextArea';
@@ -18,10 +18,7 @@ export const App = () => {
   if (!voicesList) {
     store.dispatch({ type: 'CHANGE_TEXT', payload: 'Your browser does not support speech synthesis. Try Chrome instead.' });
   }
-  const [activeVoice, setActiveVoice] = useState('');
-  const changeActiveVoice = (newValue) => {
-    setActiveVoice(newValue);
-  };
+  const activeVoice = store.getState().activeVoice.value;
 
   const speed = store.getState().speechSpeed.value;
 
@@ -35,7 +32,6 @@ export const App = () => {
     <Container>
       <Voices
         list={list}
-        changeActiveVoice={changeActiveVoice}
       />
       <SpeechSpeed />
       <PitchRate />

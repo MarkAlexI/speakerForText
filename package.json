@@ -1,6 +1,6 @@
 {
   "name": "speakerForText",
-  "version": "1.10.1",
+  "version": "1.11.1",
   "description": "Work with speech synthesis on browser.",
   "main": "dist/bundle.js",
   "keywords": [

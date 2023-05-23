@@ -18,3 +18,10 @@ export const changeSpeed = (speed) => {
     payload: speed
   }
 };
+
+export const changeActiveVoice = (activeVoice) => {
+  return {
+    type: "CHANGE_ACTIVE_VOICE",
+    payload: activeVoice
+  }
+};
