@@ -1,3 +1,5 @@
+import { store } from '../store.js';
+
 const { speechSynthesis } = globalThis;
 let voices = []; let voicesList;
 
@@ -14,7 +16,11 @@ const stop = () => {
   speechSynthesis.cancel();
 };
 
-const speak = (activeVoice = voices[0], pitch, rate, text) => {
+const speak = () => {
+  let activeVoice = store.getState().activeVoice.value || voices[0];
+  let pitch = store.getState().pitchRate.value;
+  let rate = store.getState().speechSpeed.value;
+  let text = store.getState().textField.value;
   
   if (speechSynthesis.speaking) return;
   

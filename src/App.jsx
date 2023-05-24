@@ -18,13 +18,6 @@ export const App = () => {
   if (!voicesList) {
     store.dispatch({ type: 'CHANGE_TEXT', payload: 'Your browser does not support speech synthesis. Try Chrome instead.' });
   }
-  const activeVoice = store.getState().activeVoice.value;
-
-  const speed = store.getState().speechSpeed.value;
-
-  const pitch = store.getState().pitchRate.value;
-
-  const text = store.getState().textField.value;
 
   setInterval(() => setList(voicesList), 2000);
 
@@ -38,7 +31,7 @@ export const App = () => {
       <TextArea />
       <SSControls
         leftBtnMethod={stop}
-        rightBtnMethod={speak(activeVoice, pitch, speed, text)}
+        rightBtnMethod={speak}
       />
     </Container>
   )
