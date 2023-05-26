@@ -15,10 +15,7 @@ import '/src/assets/styles/style.css';
 
 export const App = () => {
   const [list, setList] = useState(voicesList);
-  if (!voicesList) {
-    store.dispatch({ type: 'CHANGE_TEXT', payload: 'Your browser does not support speech synthesis. Try Chrome instead.' });
-  }
-
+  
   setInterval(() => setList(voicesList), 2000);
 
   return (
